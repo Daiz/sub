@@ -62,7 +62,10 @@ episodes = titlify [ # episode titles
 langs = { # subtitle track languages and names
   eng: "English"
   enm: "English (JP honorifics)"
-} # with single track shows just have the one you need
+}
+# For single track shows just have the one you need.
+# Note that you'll need to edit the target.mux function below too.
+# Instructions can be found at the relevant part.
 
 ### REQUIRES ###
 # Don't touch these.
