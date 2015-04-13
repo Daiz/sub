@@ -364,11 +364,18 @@ target.mux = (num, next) !->
   # do sort by time here so you can keep your master script nicely organized
   main.sort!
 
-  # this is where the magic happens, * indicates what tags to create swaps for
+  # this is where the magic happens, * indicates the swaps to perform
   scripts = subswap main, '*'
 
   for lang, script of scripts
     script.to-ass!.to "#prefix.release.#lang.ass"
+
+  # if you're not going to use multiple scripts,
+  # you can simply simply comment out the above
+  # and uncomment the following line and adjust
+  # the lang part to what you defined in the
+  # langs constant up at the top.
+  /* main.to-ass!.to "#prefix.release.lang.ass" */
 
   #  unzip fonts
   if test \-e "./#prefix.fonts/" then rm \-Rf "./#prefix.fonts/*"
