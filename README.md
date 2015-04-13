@@ -10,10 +10,10 @@ It can help with premux creation, release muxing, CRC32 hashing, torrent creatio
 2. Next, you need to pop open command line and install [LiveScript](http://livescript.net/) globally by running `npm install -g LiveScript`
 3. Now, you should have some sort of work folder that hosts all your project folders. Let's say it's called Work, so you would have a folder setup like so:
 ```
-* /Work/
-* /Work/Show/
-* /Work/ShowTwo/
-* /Work/AnotherShow/
+  /Work/
+  /Work/Show/
+  /Work/ShowTwo/
+  /Work/AnotherShow/
 ```
 What you need to do is copy the `package.json` file from this repository to Work (so you have it at `/Work/package.json`), then navigate to this folder via command line and run `npm install`. This will install the modules required by sub into `/Work/node_modules/`.
 4. Next up, copy `sub.ls` to a project folder, eg. `/Work/Show/sub.ls`
