@@ -1,0 +1,29 @@
+{
+  "name": "sub",
+  "version": "0.1.0",
+  "author": "Daiz",
+  "description": "A toolkit for subtitling projects.",
+  "main": "sub.ls",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Daiz/sub.git"
+  },
+  "keywords": [
+    "subtitles"
+  ],
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/Daiz/sub/issues"
+  },
+  "homepage": "https://github.com/Daiz/sub",
+  "dependencies": {
+    "buffer-crc32": "^0.2.5",
+    "cutlass": "^0.2.7",
+    "nt": "^0.4.1",
+    "optimist": "^0.6.1",
+    "subswap": "^0.3.3",
+    "unzip": "^0.1.11",
+    "zpad": "^0.5.0"
+  }
+}
