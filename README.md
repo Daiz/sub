@@ -50,3 +50,33 @@ There is also a way to swap whether a line is a comment or not. Simply set the l
 *** Comment:  {\an7}Haruka-chan!
     Dialogue: {\an1}Yet Another Sign
 ```
+
+## Filename Scheme
+
+Using **sub** assumes that you are using a specific kind of filenaming scheme
+for your project files. It's probably best to demonstrate by example. Any files marked with `*` are used by the script, so they're the important bits as far as usage is concerned.
+
+Note: You will never need to touch the generated language-tagged script files yourself. The only thing that matters for work is the master script.
+
+```
+## Common Files ##
+Show.00.premux.720p.mkv *  - premux files
+Show.00.premux.720p.ass *  - master scripts
+Show.00.fonts.zip *        - all episode fonts in a zip
+Show.00.chapters.xml *     - chapter files
+Show.00.release.lang.ass * - subswap-generated scripts
+Show.00.keyframes.txt      - keyframes
+Show.00.wraw.720p.mkv      - wraws
+
+## Encoder Files ##
+Show.00.CR.1080p.mkv *      - (softsubbed) simulcast rips
+Show.00/0.part.mkv *        - encodes done in multiple parts
+Show.00.mux.video.mkv *     - final video for the episode
+Show.00.mux.audio.mka *     - final audio for the episode
+Show.00.avs                 - the avs file
+Show.00.chapters.qpfile     - self-explanatory
+Show.00.work.keyframes.avs  - keyframe generation avs
+Show.00.work.video-720p.avs - wraw video encoding avs
+```
+The "Show.00" part above is what's called `prefix` in the code definitions of **sub**'s commands. If you want to change that, you'll need to edit all the prefix definitions at the start of the command functions accordingly. For example, if you had all the episodes in their own subfolders, you'd change the prefix to `"#num/#name.#num"` and then you would run the script from the
+parent directory (so that you only need one copy of it).
