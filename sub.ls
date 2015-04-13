@@ -46,23 +46,6 @@
 
 */
 
-### REQUIRES ###
-# Don't touch these.
-
-require 'shelljs/global'
-require! {
-  \buffer-crc32
-  \cutlass
-  \zpad
-  \optimist
-  \subswap
-  \unzip
-  \fs
-  \nt
-}
-crc = buffer-crc32
-ass = cutlass
-
 ### CONSTANTS ###
 # Edit as appropriate for each show.
 
@@ -80,6 +63,23 @@ langs = { # subtitle track languages and names
   eng: "English"
   enm: "English (JP honorifics)"
 } # with single track shows just have the one you need
+
+### REQUIRES ###
+# Don't touch these.
+
+require 'shelljs/global'
+require! {
+  \buffer-crc32
+  \cutlass
+  \zpad
+  \optimist
+  \subswap
+  \unzip
+  \fs
+  \nt
+}
+crc = buffer-crc32
+ass = cutlass
 
 ### SETUP ###
 # Don't touch these either.
