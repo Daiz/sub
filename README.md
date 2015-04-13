@@ -5,27 +5,27 @@ It can help with premux creation, release muxing, CRC32 hashing, torrent creatio
 
 ## How to use it
 
-0. Before you start, you should make sure you have [xdelta3](http://xdelta.org/) and [mkvtoolnix](https://www.bunkus.org/videotools/mkvtoolnix/) available in your PATH. (Look up enviroment variables if you're unsure what that is.)
-1. First, install [node.js](https://nodejs.org/) or [io.js](https://iojs.org). Either should work, but if in doubt go with Node.
-2. Next, you need to pop open command line and install [LiveScript](http://livescript.net/) globally by running `npm install -g LiveScript`
-3. Now, you should have some sort of work folder that hosts all your project folders. Let's say it's called Work, so you would have a folder setup like so:
+* Before you start, you should make sure you have [xdelta3](http://xdelta.org/) and [mkvtoolnix](https://www.bunkus.org/videotools/mkvtoolnix/) available in your PATH. (Look up enviroment variables if you're unsure what that is.)
+* First, install [node.js](https://nodejs.org/) or [io.js](https://iojs.org). Either should work, but if in doubt go with Node.
+* Next, you need to pop open command line and install [LiveScript](http://livescript.net/) globally by running `npm install -g LiveScript`
+* Now, you should have some sort of work folder that hosts all your project folders. Let's say it's called Work, so you would have a folder setup like so:
 ```
   /Work/
   /Work/Show/
   /Work/ShowTwo/
   /Work/AnotherShow/
 ```
-  What you need to do is copy the `package.json` file from this repository to Work (so you have it at `/Work/package.json`), then navigate to this folder via command line and run `npm install`. This will install the modules required by sub into `/Work/node_modules/`.
-4. Next up, copy `sub.ls` to a project folder, eg. `/Work/Show/sub.ls`
-5. Now, open the file, go through it and edit in your project details.
-6. After your subfile is set up, you use it via command line by running commands like the following:
+* What you need to do is copy the `package.json` file from this repository to Work (so you have it at `/Work/package.json`), then navigate to this folder via command line and run `npm install`. This will install the modules required by sub into `/Work/node_modules/`.
+* Next up, copy `sub.ls` to a project folder, eg. `/Work/Show/sub.ls`
+* Now, open the file, go through it and edit in your project details.
+* After your subfile is set up, you use it via command line by running commands like the following:
 ```
 $ lsc sub swaps 01
 $ lsc sub mux 02-04
 $ lsc sub premux 03-05 07
 $ lsc sub v2 03
 ```
-7. To use **sub** with another project, simply copy `sub.ls` to its folder and edit accordingly.
+* To use **sub** with another project, simply copy `sub.ls` to its folder and edit accordingly.
 
 ## Making multiple subtitle tracks
 
