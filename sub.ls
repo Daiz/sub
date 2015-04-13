@@ -99,7 +99,7 @@ function titlify episodes
 run = (cmd, callback) !->
   cmd .= replace /\r\n|\r|\n/g ' '
   # console.log cmd
-  code, output <-! exec cmd, {+async, +silent}
+  code, output <-! exec cmd, {+async, -silent}
   callback output, code
 
 log = -> console~log ...
