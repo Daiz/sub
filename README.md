@@ -78,5 +78,13 @@ Show.00.chapters.qpfile     - self-explanatory
 Show.00.work.keyframes.avs  - keyframe generation avs
 Show.00.work.video-720p.avs - wraw video encoding avs
 ```
-The "Show.00" part above is what's called `prefix` in the code definitions of **sub**'s commands. If you want to change that, you'll need to edit all the prefix definitions at the start of the command functions accordingly. For example, if you had all the episodes in their own subfolders, you'd change the prefix to `"#num/#name.#num"` and then you would run the script from the
-parent directory (so that you only need one copy of it).
+The `Show.00` part above is what's called `prefix` in the code definitions of **sub**'s commands. If you want to change that, you'll need to edit all the prefix definitions at the start of the command functions accordingly. For example, if you had all the episodes in their own subfolders, you'd change the prefix to `"#num/#name.#num"` and then you would run the script from the
+parent directory (so that you only need one copy of it). To demonstrate:
+```
+/Work/Show/
+/Work/Show/sub.ls
+/Work/Show/01/Show.01.premux.720p.mkv
+/Work/Show/01/Show.01.premux.720p.ass
+... etc ...
+Run commands from /Work/Show/ where sub.ls is located
+```
