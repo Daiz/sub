@@ -95,7 +95,8 @@ ext = /\.(ttf|otf|ttc)$/i
 function titlify episodes
   ret = {}
   for title, index in episodes
-    key = zpad index + 1
+    key = index + 1
+    key = key < 10 and "0#key" or "#key"
     ret[key] = title
   ret
 
