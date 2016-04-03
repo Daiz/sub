@@ -363,6 +363,7 @@ target.premux = (num, next) !->
   -a 0 -D -S -T --no-global-tags --no-chapters
   "(" "#prefix.mux.audio.mka" ")"
   --chapters "#prefix.chapters.xml"
+  --title "#title - #num"
   """
 
   console.log "Premuxing episode #num..."
@@ -436,10 +437,20 @@ target.mux = (num, next) !->
   
     """
 
-  # MKV title is set here
-  cmd += """
-  --title "#title - #num - #{episodes[num]}"
-  """
+  # MKV title is handled here
+  if not episodes[num]
+    # warn the user if no episode title is present
+    # and use just Show Title - 00 as the title
+    console.log "WARNING: No episode title present!"
+    cmt += """
+    --title "#title - #num"
+    """
+  else
+    # otherwise mux with the actual episode title included
+    cmd += """
+    --title "#title - #num - #{episodes[num]}"
+    """
+
   # you can also add --chapters to the above
   # if you mux chapters only at this point
     
