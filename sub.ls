@@ -118,6 +118,21 @@ extract = (archive, target, next) !->
     if err then return next err
     else return next void
 
+# removes comment lines and inline comments from script
+strip = (script) ->
+  lines = []
+
+  for line in script.events
+    if not line.comment
+      line.actor = ''
+      line.effect = ''
+      line.text = line.text.replace /\{[^\}\\]*\}/g ''
+      lines.push line
+
+  script.events = lines
+
+  script
+
 # version global - unset by default for regular releases
 vx = ""
 
@@ -372,7 +387,7 @@ target.mux = (num, next) !->
   scripts = subswap main, '*'
 
   for lang, script of scripts
-    script.to-ass!.to "#prefix.release.#lang.ass"
+    (strip script).to-ass!.to "#prefix.release.#lang.ass"
 
   # if you're not going to use multiple scripts,
   # you can simply simply comment out the above
