@@ -6,7 +6,7 @@ It can help with premux creation, release muxing, CRC32 hashing, torrent creatio
 ## How to use it
 
 * Before you start, you should make sure you have [xdelta3](http://xdelta.org/) and [mkvtoolnix](https://www.bunkus.org/videotools/mkvtoolnix/) available in your PATH. (Look up enviroment variables if you're unsure what that is.)
-* First, install [node.js](https://nodejs.org/) or [io.js](https://iojs.org). Either should work, but if in doubt go with Node.
+* First, install [Node.js](https://nodejs.org/).
 * Next, you need to pop open command line and install [LiveScript](http://livescript.net/) globally by running `npm install -g LiveScript`
 * Now, you should have some sort of work folder that hosts all your project folders. Let's say it's called Work, so you would have a folder setup like so:
 ```
