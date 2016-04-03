@@ -135,6 +135,8 @@ strip = (script) ->
 
 # version global - unset by default for regular releases
 vx = ""
+# resolution global - set to 720p by default
+res = "720p"
 
 # command running code
 target = {}
@@ -183,7 +185,7 @@ target.swaps = (num, next) !->
 
   prefix = "#name.#num"
   
-  main = new ass.Script cat "#prefix.premux.720p.ass"
+  main = new ass.Script cat "#prefix.premux.#res.ass"
 
   for line in main.events
 
@@ -204,7 +206,7 @@ target.swaps = (num, next) !->
       line.text = t
 
   # write over the old script version with no swaps
-  main.to-ass!.to "#prefix.premux.720p.ass"
+  main.to-ass!.to "#prefix.premux.#res.ass"
 
   next!
 
@@ -348,7 +350,7 @@ target.premux = (num, next) !->
   <-! target.video-skip num
 
   cmd = """
-  mkvmerge -o "#prefix.premux.720p.mkv"
+  mkvmerge -o "#prefix.premux.#res.mkv"
   --disable-track-statistics-tags
   --language "0:und"
   --track-name "0:H.264 (10-bit)"
@@ -378,7 +380,7 @@ target.mux = (num, next) !->
 
   prefix = "#name.#num"
 
-  main = new ass.Script cat "#prefix.premux.720p.ass"
+  main = new ass.Script cat "#prefix.premux.#res.ass"
 
   # do sort by time here so you can keep your master script nicely organized
   main.sort!
@@ -408,9 +410,9 @@ target.mux = (num, next) !->
   # the filename scheme properly, places are marked
   ## FILENAME SCHEME ##
   cmd = """
-  mkvmerge -o "[#group] #show - #num#vx (720p).mkv"
+  mkvmerge -o "[#group] #show - #num#vx (#res).mkv"
   --disable-track-statistics-tags
-  "#prefix.premux.720p.mkv"
+  "#prefix.premux.#res.mkv"
   
   """
 
@@ -451,7 +453,7 @@ target.mux = (num, next) !->
 # CRC32 hash the episode mux and append it to the filename.
 target.crc = (num, next) !->
   ## FILENAME SCHEME ##
-  file = "[#group] #show - #num#vx (720p)"
+  file = "[#group] #show - #num#vx (#res)"
 
   checksum = void
   parts = <[ B KB MB GB ]>
@@ -478,9 +480,9 @@ target.crc = (num, next) !->
 # Creates an .xdelta patch from premux to release.
 target.patch = (num, next) !->
 
-  premux = "#name.#num.premux.720p.mkv"
+  premux = "#name.#num.premux.#res.mkv"
   ## FILENAME SCHEME ##
-  file = (ls "[#group] #show - #num#vx (720p)*.mkv")?0
+  file = (ls "[#group] #show - #num#vx (#res)*.mkv")?0
   console.log "Premux patching episode #num#vx..."
   <-! run """xdelta3 -e -s #premux "#file" #name.#num#vx.mux.xdelta"""
 
