@@ -442,7 +442,7 @@ target.mux = (num, next) !->
     # warn the user if no episode title is present
     # and use just Show Title - 00 as the title
     console.log "WARNING: No episode title present!"
-    cmt += """
+    cmd += """
     --title "#title - #num"
     """
   else
